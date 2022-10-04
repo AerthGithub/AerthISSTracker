@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AERTH - NASA SPACE APPS CHALLENGE</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="container">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <span class="fs-4">AERTH</span>
+        </a>
+  
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#moduls" class="nav-link">Moduls</a></li>
+          <li class="nav-item"><a href="#history" class="nav-link">History</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </header>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <br />
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">NASA Space Apps Challenge</span>  
+        </h4>
+        <div class="card p-2">
+          <h1 class="display-5">Tracking the ISS</h1>
+        </div>
+        <br />
+        <form onsubmit="return false;">
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div class="col-md-4">
+                <label for="txtday" class="form-label">Day</label>
+                <input type="number" min="1" max="31" class="form-control" id="txtday" placeholder="" required>
+              </div>
+              &nbsp;
+              <div class="col-md-4">
+                <label for="txtmonth" class="form-label">Month</label>
+                <input type="number" min="1" max="12" class="form-control" id="txtmonth" placeholder="" required>
+              </div>
+              &nbsp;
+              <div class="col-md-4">
+                <label for="txtyear" class="form-label">Year</label>
+                <input type="number" min="1998" max="2031" class="form-control" id="txtyear" placeholder="" required>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div class="col-md-6">
+                <label for="txthours" class="form-label">Hour</label>
+                <input type="number" min="0" max="23" class="form-control" id="txthours" placeholder="" required>
+              </div>
+              &nbsp;
+              <div class="col-md-6">
+                <label for="txtminutes" class="form-label">Minutes</label>
+                <input type="number" min="0" max="59" class="form-control" id="txtminutes" placeholder="" required>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="btntravel()">Travel in time</button>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="" id="txtVelocity">
+                <button class="btn btn-outline-secondary btnVelocity" onclick="fChangeVelocity()" type="button">Change velocity</button>
+                <button class="btn btn-outline-secondary btnVelocity" onclick="fResetVelocity()" type="button">Reset</button>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" onclick="fFastForward()" id="cbFastForward">
+                <label class="form-check-label" for="cbFastForward">Fast forward</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="cbCameraLock" onclick="fCameraLock()">
+                <label class="form-check-label" for="cbCameraLock">Camera Lock</label>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </div>
+      
+      <div class="col-md-7 col-lg-8">
+          <canvas id="canvasOne">
+            Your browser does not support HTML5 Canvas.
+          </canvas>
+      </div>
+    </div> 
+
+    <br />
+
+    <div class="row align-items-md-stretch container" id="education">
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light rounded-3">
+          <h2>Education</h2>
+          <p>When tackling orbital mechanics there are two things to consider 
+            1 the choice of your coordinate system (as well as its origin) 
+            2 and the form of the orbit 
+            There are two choices of coordinate systems, the Descartes' coordinate system which is the one were all familiar with, and the polar coordinate system which utilizes the objects angles relative to the point of origin of the system. 
+            When dealing with free motion problems bounded by an orbit a polar coordinate system does a better job at relaying information. This comes down to the simple fact that polar coordinate systems, when dealing with a bounded orbit, have one less variable to consider. Though the math does get quite complicated, we'll do our best to keep it simple for now. We aim to accomplish this by looking at the simplest orbital mechanics problems first, and then dealing with the ones that require rudimentary calculus knowledge. We will start this adventure by deriving the radius of our orbit through its velocity, or expressing the radius as a function. We will do this by equating two famous formulas:
+            <img src="images/f1.png" class="formula" />
+            And through pretty standard algebraic manipulation we get <img src="images/f2.png" class="formula" />
+            </p>
+            <img src="images/formuli.png" style="width: 100%;" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2></h2>
+          <p>This is quite an important equation and it's important to take some time and ponder its meaning.
+            What we've done here is a demonstration of the relationship between the velocity of an object and its orbit. This essentially lets us calculate and predict the orbit of any object within a gravitational well.
+            Next up we'll look at how regular coordinates translate into polar ones. The relationships are given as follows:
+            <img src="images/f4.png" class="formula" style="width: 8em;" />
+            With these equations solving a free motion problem is a piece of cake! We've demonstrated this in our ISS tracking website. 
+            Another problem we wanted to look at was an orbital mechanics problem where the orbit takes the form of an elipse. Now an ellipses general formula is defined as 
+            <img src="images/f6.png" class="formula" style="width: 10em;" />
+            There's a property called linear eccentricity which comes in handy when dealing with free body motion, and its defined as:
+            <img src="images/f7.png" class="formula" />
+            This property is especially useful when calculating the radius from one of the foci.</p>
+        </div>
+      </div>
+    </div>
+    <br /> 
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+      <div class="carousel-inner" id="moduls">
+        <div class="carousel-item active">
+          <img src="images/1.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Quest Joint Airlock</h5>
+            <p>The Quest Joint Airlock, previously known as the Joint Airlock Module, is the primary airlock for the International Space Station. Quest was designed to host spacewalks with both Extravehicular Mobility Unit (EMU) spacesuits and Orlan space suits. The airlock was launched on STS-104 on July 14, 2001. It was attached to the starboard CBM of the Unity during STS-104. The four external HP tanks were installed in pairs on two occasions.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/2.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Dextre</h5>
+            <p>Dextre, also known as the Special Purpose Dexterous Manipulator (SPDM), is a two armed robot, or telemanipulator, which is part of the Mobile Servicing System on the International Space Station (ISS), and does repairs that would otherwise require astronauts to do spacewalks. It was launched on March 11th, 2008 on the mission STS-123. Dextre is a small part of Canada's contributions to the ISS and was named to represent its dexterous nature. Dextre is the newest of three Canadian robotic arm used on the ISS, preceded by the Space Shuttle's Canadarm and the large Canadarm2. Dextre was designed and manufactured by MDA. In the early morning of February 4, 2011, Dextre completed its first official assignment which consisted of unpacking two pieces for Kounotori 2 while the on-board crew was sleeping.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/3.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Unity</h5>
+            <p>The Unity connecting module, also known as Node 1, is the first U.S.-built component of the International Space Station (ISS). The module is cylindrical in shape, with six berthing locations (forward, aft, port, starboard, zenith, and nadir) facilitating connections to other modules. Unity measures 4.57 m (15.0 ft) in diameter, is 5.47 m (17.9 ft) long, made of steel, and was built for NASA by Boeing in a manufacturing facility at the Marshall Space Flight Center in Huntsville, Alabama. Unity is the first of the three connecting modules; the other two are Harmony and Tranquility.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/4.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Canadarm</h5>
+            <p>Canadarm or Canadarm1 (officially Shuttle Remote Manipulator System or SRMS, also SSRMS) is a series of robotic arms that were used on the Space Shuttle orbiters to deploy, manoeuvre, and capture payloads. After the Space Shuttle Columbia disaster, the Canadarm was always paired with the Orbiter Boom Sensor System (OBSS), which was used to inspect the exterior of the shuttle for damage to the thermal protection system.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/5.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Destiny</h5>
+            <p>The Destiny module, also known as the U.S. Lab, is the primary operating facility for U.S. research payloads aboard the International Space Station (ISS). It was berthed to the Unity module and activated over a period of five days in February, 2001. Destiny is NASA's first permanent operating orbital research station since Skylab was vacated in February 1974. The Boeing Company began construction of the 14.5-tonne (32,000 lb) research laboratory in 1995 at the Michoud Assembly Facility and then the Marshall Space Flight Center in Huntsville, Alabama.[2] Destiny was shipped to the Kennedy Space Center in Florida in 1998, and was turned over to NASA for pre-launch preparations in August 2000. It launched on February 7, 2001 aboard the Space Shuttle Atlantis on STS-98</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <br />
+    
+    <div class="d-flex gap-5 justify-content-center container-fluid py-5" id="history">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="display-4 fw-bold lh-1">History - Building the ISS</h1>
+          <p class="lead">As early as the 1950s, American space pioneer Wernher von Braun already had ideas for large orbiting space stations. He envisioned a wheel-shaped facility, slowly rotating to provide artificial gravity to its several thousand occupants. While such an orbital outpost exceeded available technologies for the foreseeable future, shortly after its founding in 1958 NASA began considering more modest space stations. With President John F. Kennedy’s 1961 pronouncement of a Moon landing as a national goal, plans for space stations took a back seat until after NASA achieved that objective.In the optimism following President Reagan’s announcement, NASA laid out an ambitious plan for a Space Station composed of three separate orbital platforms to conduct microgravity research, Earth and celestial observations, and to serve as a transportation and servicing node for space vehicles and satellites and as a staging base for deep-space exploration. NASA signed agreements with the European Space Agency (ESA) and Japan’s National Space Development Agency (NASDA) to provide their own research modules. In April 1985, NASA established a Space Station Program Office at the Johnson Space Center in Houston. The first American element, the Unity Node 1 module, arrived via Space Shuttle Endeavour three weeks later, beginning the construction of the largest international space platform.Nearly 20 years later, multinational crews continue to live and work aboard a much-enlarged ISS, a unique microgravity laboratory for conducting research in a wide variety of scientific disciplines and a testbed for future human exploration programs.</p>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+            <img class="rounded-lg-3" src="images/ISS-animation.gif" alt="" width="720">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" id="about">
+        <div class="px-0">
+          <h1 class="display-4 fst-italic">About</h1>
+          <p class="lead my-3">Aerth is a team of 6 students and 1 mentor which chose the “Track the ISS Station” challenge in the NASA Space apps challenge 2022 held in Netville, the newest building from Netcetara.
+            The challenge combines Mathematics, Orbital Mechanics, Physics and Programming. In order to achieve this, we have combined our knowledge from all the fields stated above and team working, which we think it’s the best way to do the project.
+            
+            Here are the references which have helped us doing the project from the programming aspect:
+            </p>
+          <p class="lead mb-0 text-white fw-bold">NASA WordWind</p>
+          <p class="lead mb-0 text-white fw-bold">Bootstrap</p>
+        </div>
+      </div>
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-3 mb-md-0 text-muted">© 2022 AERTH</span>
+        </div>
+      </footer>
+    </div>
+
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+      <i>↑</i>
+    </button>
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <script src="scripts/scroll.js" type="text/javascript"></script>
+    <script src="https://files.worldwind.arc.nasa.gov/artifactory/web/0.9.0/worldwind.min.js" type="text/javascript"></script>
+    <script src="scripts/bootstrap.bundle.js" type="text/javascript"></script>
+    <script src="scripts/WorldWind.js" type="text/javascript"></script>
+</body>
+</html>
