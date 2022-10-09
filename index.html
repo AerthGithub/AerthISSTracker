@@ -99,30 +99,28 @@
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light rounded-3">
           <h2>Education</h2>
-          <p>When tackling orbital mechanics there are two things to consider 
-            1 the choice of your coordinate system (as well as its origin) 
-            2 and the form of the orbit 
-            There are two choices of coordinate systems, the Descartes' coordinate system which is the one were all familiar with, and the polar coordinate system which utilizes the objects angles relative to the point of origin of the system. 
-            When dealing with free motion problems bounded by an orbit a polar coordinate system does a better job at relaying information. This comes down to the simple fact that polar coordinate systems, when dealing with a bounded orbit, have one less variable to consider. Though the math does get quite complicated, we'll do our best to keep it simple for now. We aim to accomplish this by looking at the simplest orbital mechanics problems first, and then dealing with the ones that require rudimentary calculus knowledge. We will start this adventure by deriving the radius of our orbit through its velocity, or expressing the radius as a function. We will do this by equating two famous formulas:
-            <img src="images/f1.png" class="formula" />
-            And through pretty standard algebraic manipulation we get <img src="images/f2.png" class="formula" />
-            </p>
-            <img src="images/formuli.png" style="width: 100%;" />
-        </div>
+          <p>When tackling orbital mechanics there are two things to consider: the choice of your coordinate system (as well as its origin) and the form of the orbit. There are two choices of coordinate systems, the Descartes coordinate system which is the one we are all familiar with, and the polar coordinate system which utilizes the objects angles relative to the point of origin of the system. When dealing with free motion problems bounded by an orbit a polar coordinate system does a better job at relaying information. This comes down to the simple fact that polar coordinate systems, when dealing with a bounded orbit, have one less variable to consider. Though the math does get quite complicated, we'll do our best to keep it simple for now. We aim to accomplish this by looking at the simplest orbital mechanics problems first, and then dealing with the ones that require rudimentary calculus knowledge. We will start this adventure by deriving the radius of our orbit through its velocity, or expressing the radius as a function. We will do this by equating two famous formulas: 
+            <img src="images/f1.png" style="width: 5em;" /> and <img src="images/f2.png" style="width: 5em;" />
+            . And through pretty standard algebraic manipulation we get
+            <img src="images/f3.png" style="width: 5em;" />
+            . This is a very useful equation and it's important to take some time and ponder its meaning. What we've done here is a demonstration of the relationship between the velocity of an object and its orbit. This essentially lets us calculate and predict the orbit of any object within a gravitational well.
+          </div>
       </div>
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light border rounded-3">
           <h2></h2>
-          <p>This is quite an important equation and it's important to take some time and ponder its meaning.
-            What we've done here is a demonstration of the relationship between the velocity of an object and its orbit. This essentially lets us calculate and predict the orbit of any object within a gravitational well.
-            Next up we'll look at how regular coordinates translate into polar ones. The relationships are given as follows:
-            <img src="images/f4.png" class="formula" style="width: 8em;" />
-            With these equations solving a free motion problem is a piece of cake! We've demonstrated this in our ISS tracking website. 
-            Another problem we wanted to look at was an orbital mechanics problem where the orbit takes the form of an elipse. Now an ellipses general formula is defined as 
-            <img src="images/f6.png" class="formula" style="width: 10em;" />
-            There's a property called linear eccentricity which comes in handy when dealing with free body motion, and its defined as:
-            <img src="images/f7.png" class="formula" />
-            This property is especially useful when calculating the radius from one of the foci.</p>
+          <p>Next up we'll look at how regular coordinates translate into polar ones. The relationships are given as follows: 
+            <img src="images/f4.png" style="width: 7em;" />
+            . With these equations solving a free motion problem is a piece of cake! We've demonstrated this in our ISS tracking website. It is worth taking some time to talk about the transition from 2d to 3d polar coordinates. The way we do this is by altering the function of the angle phi and expressing it as a sine wave. The funvtion for the angle theta doesn’t change and so we get the system of equations:
+            <img src="images/f5.png" style="width: 8em;" />
+            & 
+            <img src="images/f6.png" style="width: 7em;" />
+            where A is 51.6 degrees while omega is calculated using the user input for the velocity.
+            Another problem we wanted to look at was an orbital mechanics problem where the orbit takes the form of an elipse. Now an ellipses general formula is defined as:
+            <img src="images/f7.png" style="width: 10em;" />
+            There's a property called linear eccentricity which comes in handy when dealing with free body motion, and its defined as: <img src="images/f8.png" style="width: 3em;" />. This property is especially useful when calculating the radius from one of the foci, since the equation utilizes it:
+            <img src="images/f9.png" style="width: 12em;" />
+            . The theta and phi functions are derived with a method similar to the one summarized above.
         </div>
       </div>
     </div>
@@ -185,7 +183,7 @@
     <br />
     
     <div class="d-flex gap-5 justify-content-center container-fluid py-5" id="history">
-      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg w-100">
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
           <h1 class="display-4 fw-bold lh-1">History - Building the ISS</h1>
           <p class="lead">As early as the 1950s, American space pioneer Wernher von Braun already had ideas for large orbiting space stations. He envisioned a wheel-shaped facility, slowly rotating to provide artificial gravity to its several thousand occupants. While such an orbital outpost exceeded available technologies for the foreseeable future, shortly after its founding in 1958 NASA began considering more modest space stations. With President John F. Kennedy’s 1961 pronouncement of a Moon landing as a national goal, plans for space stations took a back seat until after NASA achieved that objective.In the optimism following President Reagan’s announcement, NASA laid out an ambitious plan for a Space Station composed of three separate orbital platforms to conduct microgravity research, Earth and celestial observations, and to serve as a transportation and servicing node for space vehicles and satellites and as a staging base for deep-space exploration. NASA signed agreements with the European Space Agency (ESA) and Japan’s National Space Development Agency (NASDA) to provide their own research modules. In April 1985, NASA established a Space Station Program Office at the Johnson Space Center in Houston. The first American element, the Unity Node 1 module, arrived via Space Shuttle Endeavour three weeks later, beginning the construction of the largest international space platform.Nearly 20 years later, multinational crews continue to live and work aboard a much-enlarged ISS, a unique microgravity laboratory for conducting research in a wide variety of scientific disciplines and a testbed for future human exploration programs.</p>
@@ -200,7 +198,7 @@
       <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" id="about">
         <div class="px-0">
           <h1 class="display-4 fst-italic">About</h1>
-          <p class="lead my-3">Aerth is a team of 6 students and 1 mentor which chose the “Track the ISS Station” challenge in the NASA Space apps challenge 2022 held in Netville, the newest building from Netcetara.
+          <p class="lead my-3">Aerth is a team of 6 students and 1 mentor which chose the “Track the ISS Station” challenge in the NASA Space apps challenge 2022 held in Netaville, the newest building from Netcetera.
             The challenge combines Mathematics, Orbital Mechanics, Physics and Programming. In order to achieve this, we have combined our knowledge from all the fields stated above and team working, which we think it’s the best way to do the project.
             
             Here are the references which have helped us doing the project from the programming aspect:

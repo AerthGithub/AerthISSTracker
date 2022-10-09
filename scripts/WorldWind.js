@@ -225,7 +225,6 @@ function fResetVelocity(){
     wwd.navigator.lookAtLocation.latitude = deltaPhi;
     wwd.navigator.lookAtLocation.longitude = deltaTheta - offsetA*vreme;
     wwd.navigator.range = 10000000; 
-    document.getElementById("txtVelocity").value = velocity;
 }
 
 //CUSTOM MODEL(ISS)
